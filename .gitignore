@@ -4,3 +4,4 @@ __pycache__/
 server/
 .DS_Store
 *.log
+models_real/
