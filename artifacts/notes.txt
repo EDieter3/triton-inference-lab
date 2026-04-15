@@ -1,0 +1,17 @@
+Completed first Triton inference test.
+Environment:
+- Windows host
+- WSL2 Ubuntu
+- Docker Desktop with WSL integration
+- NVIDIA GPU accessible in container
+- Triton 26.03
+
+Validated:
+- Triton health endpoints
+- model metadata endpoint
+- metrics endpoint
+- successful inference on simple model
+
+Result:
+- OUTPUT0 returned all 2s
+- OUTPUT1 returned all 0s

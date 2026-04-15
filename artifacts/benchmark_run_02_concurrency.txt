@@ -1,0 +1,110 @@
+Checking Triton health...
+Triton ready endpoint responded.
+
+=== Batch size 1, concurrency 1, 25 requests/worker ===
+Total planned requests: 25
+Total planned inferences: 25
+Before metrics: {'request_success': 575, 'inference_count': 1092, 'exec_count': 575}
+After metrics:  {'request_success': 600, 'inference_count': 1117, 'exec_count': 600}
+Metric deltas:
+  request_success: +25
+  inference_count: +25
+  exec_count:      +25
+Timing:
+  total_seconds:   0.0235
+  requests/sec:    1065.34
+  inferences/sec:  1065.34
+Expected behavior:
+  request_success should increase by 25
+  inference_count should increase by 25
+  exec_count may track requests closely in this simple setup
+
+=== Batch size 1, concurrency 4, 25 requests/worker ===
+Total planned requests: 100
+Total planned inferences: 100
+Before metrics: {'request_success': 600, 'inference_count': 1117, 'exec_count': 600}
+After metrics:  {'request_success': 700, 'inference_count': 1217, 'exec_count': 700}
+Metric deltas:
+  request_success: +100
+  inference_count: +100
+  exec_count:      +100
+Timing:
+  total_seconds:   0.0339
+  requests/sec:    2953.28
+  inferences/sec:  2953.28
+Expected behavior:
+  request_success should increase by 100
+  inference_count should increase by 100
+  exec_count may track requests closely in this simple setup
+
+=== Batch size 1, concurrency 8, 25 requests/worker ===
+Total planned requests: 200
+Total planned inferences: 200
+Before metrics: {'request_success': 700, 'inference_count': 1217, 'exec_count': 700}
+After metrics:  {'request_success': 900, 'inference_count': 1417, 'exec_count': 900}
+Metric deltas:
+  request_success: +200
+  inference_count: +200
+  exec_count:      +200
+Timing:
+  total_seconds:   0.1272
+  requests/sec:    1572.80
+  inferences/sec:  1572.80
+Expected behavior:
+  request_success should increase by 200
+  inference_count should increase by 200
+  exec_count may track requests closely in this simple setup
+
+=== Batch size 4, concurrency 1, 25 requests/worker ===
+Total planned requests: 25
+Total planned inferences: 100
+Before metrics: {'request_success': 900, 'inference_count': 1417, 'exec_count': 900}
+After metrics:  {'request_success': 925, 'inference_count': 1517, 'exec_count': 925}
+Metric deltas:
+  request_success: +25
+  inference_count: +100
+  exec_count:      +25
+Timing:
+  total_seconds:   0.0230
+  requests/sec:    1087.47
+  inferences/sec:  4349.87
+Expected behavior:
+  request_success should increase by 25
+  inference_count should increase by 100
+  exec_count may track requests closely in this simple setup
+
+=== Batch size 4, concurrency 4, 25 requests/worker ===
+Total planned requests: 100
+Total planned inferences: 400
+Before metrics: {'request_success': 925, 'inference_count': 1517, 'exec_count': 925}
+After metrics:  {'request_success': 1025, 'inference_count': 1917, 'exec_count': 1025}
+Metric deltas:
+  request_success: +100
+  inference_count: +400
+  exec_count:      +100
+Timing:
+  total_seconds:   0.0366
+  requests/sec:    2733.43
+  inferences/sec:  10933.73
+Expected behavior:
+  request_success should increase by 100
+  inference_count should increase by 400
+  exec_count may track requests closely in this simple setup
+
+=== Batch size 8, concurrency 4, 25 requests/worker ===
+Total planned requests: 100
+Total planned inferences: 800
+Before metrics: {'request_success': 1025, 'inference_count': 1917, 'exec_count': 1025}
+After metrics:  {'request_success': 1125, 'inference_count': 2717, 'exec_count': 1125}
+Metric deltas:
+  request_success: +100
+  inference_count: +800
+  exec_count:      +100
+Timing:
+  total_seconds:   0.0394
+  requests/sec:    2537.72
+  inferences/sec:  20301.75
+Expected behavior:
+  request_success should increase by 100
+  inference_count should increase by 800
+  exec_count may track requests closely in this simple setup

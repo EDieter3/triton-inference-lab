@@ -1,0 +1,130 @@
+Checking Triton health...
+Triton ready endpoint responded.
+
+=== Batch size 1, concurrency 1, 25 requests/worker ===
+Total planned requests: 25
+Total planned inferences: 25
+Before metrics: {'request_success': 1675, 'inference_count': 4342, 'exec_count': 1675}
+After metrics:  {'request_success': 1700, 'inference_count': 4367, 'exec_count': 1700}
+Metric deltas:
+  request_success: +25
+  inference_count: +25
+  exec_count:      +25
+Timing:
+  total_seconds:   0.0225
+  requests/sec:    1109.70
+  inferences/sec:  1109.70
+Latency (per request):
+  avg_ms:          0.850
+  min_ms:          0.746
+  p50_ms:          0.820
+  p95_ms:          1.047
+  p99_ms:          1.126
+  max_ms:          1.146
+
+=== Batch size 1, concurrency 4, 25 requests/worker ===
+Total planned requests: 100
+Total planned inferences: 100
+Before metrics: {'request_success': 1700, 'inference_count': 4367, 'exec_count': 1700}
+After metrics:  {'request_success': 1800, 'inference_count': 4467, 'exec_count': 1800}
+Metric deltas:
+  request_success: +100
+  inference_count: +100
+  exec_count:      +100
+Timing:
+  total_seconds:   0.0407
+  requests/sec:    2454.99
+  inferences/sec:  2454.99
+Latency (per request):
+  avg_ms:          1.537
+  min_ms:          0.955
+  p50_ms:          1.518
+  p95_ms:          2.203
+  p99_ms:          2.508
+  max_ms:          2.522
+
+=== Batch size 1, concurrency 8, 25 requests/worker ===
+Total planned requests: 200
+Total planned inferences: 200
+Before metrics: {'request_success': 1800, 'inference_count': 4467, 'exec_count': 1800}
+After metrics:  {'request_success': 2000, 'inference_count': 4667, 'exec_count': 2000}
+Metric deltas:
+  request_success: +200
+  inference_count: +200
+  exec_count:      +200
+Timing:
+  total_seconds:   0.0950
+  requests/sec:    2105.69
+  inferences/sec:  2105.69
+Latency (per request):
+  avg_ms:          3.552
+  min_ms:          0.930
+  p50_ms:          3.640
+  p95_ms:          5.047
+  p99_ms:          5.715
+  max_ms:          5.842
+
+=== Batch size 4, concurrency 1, 25 requests/worker ===
+Total planned requests: 25
+Total planned inferences: 100
+Before metrics: {'request_success': 2000, 'inference_count': 4667, 'exec_count': 2000}
+After metrics:  {'request_success': 2025, 'inference_count': 4767, 'exec_count': 2025}
+Metric deltas:
+  request_success: +25
+  inference_count: +100
+  exec_count:      +25
+Timing:
+  total_seconds:   0.0236
+  requests/sec:    1060.71
+  inferences/sec:  4242.84
+Latency (per request):
+  avg_ms:          0.887
+  min_ms:          0.797
+  p50_ms:          0.883
+  p95_ms:          1.003
+  p99_ms:          1.028
+  max_ms:          1.036
+
+=== Batch size 4, concurrency 4, 25 requests/worker ===
+Total planned requests: 100
+Total planned inferences: 400
+Before metrics: {'request_success': 2025, 'inference_count': 4767, 'exec_count': 2025}
+After metrics:  {'request_success': 2125, 'inference_count': 5167, 'exec_count': 2125}
+Metric deltas:
+  request_success: +100
+  inference_count: +400
+  exec_count:      +100
+Timing:
+  total_seconds:   0.0370
+  requests/sec:    2700.56
+  inferences/sec:  10802.22
+Latency (per request):
+  avg_ms:          1.387
+  min_ms:          0.800
+  p50_ms:          1.300
+  p95_ms:          1.975
+  p99_ms:          2.063
+  max_ms:          2.199
+
+=== Batch size 8, concurrency 4, 25 requests/worker ===
+Total planned requests: 100
+Total planned inferences: 800
+Before metrics: {'request_success': 2125, 'inference_count': 5167, 'exec_count': 2125}
+After metrics:  {'request_success': 2225, 'inference_count': 5967, 'exec_count': 2225}
+Metric deltas:
+  request_success: +100
+  inference_count: +800
+  exec_count:      +100
+Timing:
+  total_seconds:   0.0388
+  requests/sec:    2574.28
+  inferences/sec:  20594.26
+Latency (per request):
+  avg_ms:          1.421
+  min_ms:          0.839
+  p50_ms:          1.356
+  p95_ms:          1.989
+  p99_ms:          2.184
+  max_ms:          2.288
+
+CSV written to: /home/paint/triton-lab/artifacts/benchmark_results.csv

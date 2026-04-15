@@ -1,0 +1,50 @@
+Checking Triton health...
+Triton ready endpoint responded.
+
+=== Batch size 1, 25 requests ===
+Before metrics: {'request_success': 500, 'inference_count': 767, 'exec_count': 500}
+After metrics:  {'request_success': 525, 'inference_count': 792, 'exec_count': 525}
+Metric deltas:
+  request_success: +25
+  inference_count: +25
+  exec_count:      +25
+Timing:
+  total_seconds:   0.0222
+  requests/sec:    1125.38
+  inferences/sec:  1125.38
+Expected behavior:
+  request_success should increase by 25
+  inference_count should increase by 25
+  exec_count usually increases by about 25 for this simple setup
+
+=== Batch size 4, 25 requests ===
+Before metrics: {'request_success': 525, 'inference_count': 792, 'exec_count': 525}
+After metrics:  {'request_success': 550, 'inference_count': 892, 'exec_count': 550}
+Metric deltas:
+  request_success: +25
+  inference_count: +100
+  exec_count:      +25
+Timing:
+  total_seconds:   0.0227
+  requests/sec:    1102.97
+  inferences/sec:  4411.86
+Expected behavior:
+  request_success should increase by 25
+  inference_count should increase by 100
+  exec_count usually increases by about 25 for this simple setup
+
+=== Batch size 8, 25 requests ===
+Before metrics: {'request_success': 550, 'inference_count': 892, 'exec_count': 550}
+After metrics:  {'request_success': 575, 'inference_count': 1092, 'exec_count': 575}
+Metric deltas:
+  request_success: +25
+  inference_count: +200
+  exec_count:      +25
+Timing:
+  total_seconds:   0.0238
+  requests/sec:    1049.03
+  inferences/sec:  8392.24
+Expected behavior:
+  request_success should increase by 25
+  inference_count should increase by 200
+  exec_count usually increases by about 25 for this simple setup
