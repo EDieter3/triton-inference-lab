@@ -95,6 +95,21 @@ The benchmark tested combinations of:
 - Best overall throughput: batch size 8, concurrency 4
 - Best overall balance of throughput and latency: batch size 4, concurrency 4
 
+
+
+## Real Model Serving
+Extended the lab from the `simple` test model to a real ONNX image-classification model (`densenet_onnx`). Validated model loading, readiness, metadata, and end-to-end image inference using the Triton SDK client.
+
+A sample inference against `mug.jpg` returned top classifications of:
+- COFFEE MUG
+- CUP
+- COFFEEPOT
+
+This added:
+- real ONNX model serving through Triton
+- end-to-end image classification inference
+- a more realistic model-serving workflow beyond synthetic test models
+
 ## Observability
 Prometheus was configured to scrape Triton metrics, and Grafana was used to visualize model-serving activity during benchmark runs.
 
