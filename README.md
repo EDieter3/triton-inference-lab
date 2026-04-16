@@ -11,7 +11,7 @@ The lab is focused on practical AI infrastructure skills relevant to model servi
 - Container runtime: Docker Desktop with WSL integration
 - GPU: NVIDIA GeForce RTX 5080
 - Triton version: 26.03
-- Model used: `simple` example model
+- Models used: `simple`, `densenet_onnx`
 
 ## What I Built
 - Brought up Triton Inference Server in Docker with GPU access
@@ -24,6 +24,8 @@ The lab is focused on practical AI infrastructure skills relevant to model servi
 - Generated throughput and p95 latency charts from benchmark results
 - Configured Prometheus to scrape Triton metrics
 - Built Grafana dashboards to visualize counters and rates during benchmark runs
+- Added NVIDIA DCGM Exporter to expose GPU telemetry for Prometheus and Grafana
+- Extended the lab to a real ONNX image-classification model (`densenet_onnx`) and validated end-to-end inference with the Triton SDK client
 
 ## Repository Layout
 
@@ -35,14 +37,23 @@ The lab is focused on practical AI infrastructure skills relevant to model servi
     │   └── plot_benchmark.py
     ├── models/
     │   └── simple/
+    ├── models_real/
+    │   └── densenet_onnx/
     ├── requests/
     │   ├── simple_request.json
     │   ├── simple_request_bs4.json
     │   └── simple_request_bs8.json
+    ├── monitoring/
+    │   └── prometheus/
+    │       └── prometheus.yml
     ├── artifacts/
     │   ├── benchmark_results.csv
     │   ├── throughput_chart.png
     │   ├── latency_chart.png
+    │   ├── grafana_overview.png
+    │   ├── grafana_triton_activity.png
+    │   ├── grafana_gpu_activity.png
+    │   ├── densenet_image_inference.txt
     │   ├── benchmark_run_01.txt
     │   ├── benchmark_run_02_concurrency.txt
     │   ├── benchmark_run_03_latency.txt
@@ -50,7 +61,8 @@ The lab is focused on practical AI infrastructure skills relevant to model servi
     │   └── notes.txt
     └── docs/
         ├── setup_notes.md
-        └── prometheus_grafana_setup.md
+        ├── prometheus_grafana_setup.md
+        └── dcgm_exporter_setup.md
 
 ## Triton Validation
 The initial phase of the lab focused on validating a complete Triton workflow:
@@ -161,6 +173,10 @@ This made it possible to:
 - `artifacts/benchmark_results.csv`
 - `artifacts/throughput_chart.png`
 - `artifacts/latency_chart.png`
+- `artifacts/grafana_overview.png`
+- `artifacts/grafana_triton_activity.png`
+- `artifacts/grafana_gpu_activity.png`
+- `artifacts/densenet_image_inference.txt`
 - `artifacts/benchmark_run_01.txt`
 - `artifacts/benchmark_run_02_concurrency.txt`
 - `artifacts/benchmark_run_03_latency.txt`
@@ -173,7 +189,6 @@ This made it possible to:
 - Added Prometheus and Grafana to visualize Triton model-serving metrics during benchmark testing
 
 ## Next Steps
-- Add GPU telemetry with DCGM Exporter
 - Serve a more realistic ONNX or generative AI model through Triton
 - Compare Triton behavior across different model types
 - Move the lab into Kubernetes with NVIDIA GPU Operator
