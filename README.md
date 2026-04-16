@@ -110,6 +110,18 @@ This added:
 - end-to-end image classification inference
 - a more realistic model-serving workflow beyond synthetic test models
 
+
+## GPU Telemetry
+Added NVIDIA DCGM Exporter to expose GPU telemetry to Prometheus and Grafana.
+
+This enabled monitoring of:
+- GPU utilization
+- framebuffer memory usage
+- power usage
+- temperature (optional)
+
+With Triton and DCGM metrics together, the lab can now correlate model-serving activity with GPU behavior during benchmark runs.
+
 ## Observability
 Prometheus was configured to scrape Triton metrics, and Grafana was used to visualize model-serving activity during benchmark runs.
 
@@ -132,6 +144,18 @@ This made it possible to:
 
 ### p95 Latency
 ![Latency Chart](artifacts/latency_chart.png)
+
+
+## Dashboard Screenshots
+
+### Grafana Overview
+![Grafana Overview](artifacts/grafana_overview.png)
+
+### Triton Activity Panels
+![Grafana Triton Activity](artifacts/grafana_triton_activity.png)
+
+### GPU Activity Panels
+![Grafana GPU Activity](artifacts/grafana_gpu_activity.png)
 
 ## Artifacts
 - `artifacts/benchmark_results.csv`
